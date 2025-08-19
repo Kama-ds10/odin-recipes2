@@ -1,0 +1,2 @@
+This project is part of The Odin Project curriculum. It involves creating a basic recipe website using HTML. The site consists of a main index page that links to multiple individual recipe pages. Each recipe page contains a title, an image, a list of ingredients, and step-by-step instructions.
+By completing this project, I will have demonstrated skills in structuring HTML documents, creating and linking multiple pages, organizing project files, and embedding images into a website.
