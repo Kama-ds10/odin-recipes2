@@ -1,22 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Recipe Box — A Kitchen Worth Keeping</title>
+  <meta name="description" content="A curated box of recipes worth keeping — premium, tested, and written like the cards your grandmother kept.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <h1>Odin Recipes</h1>
 
-    
-   
-    
-    <!-- <a href=""></a> -->
+  <!-- ===== Header ===== -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="#" class="logo">
+        <span class="logo__mark">01</span>
+        <span class="logo__text">The Recipe Box</span>
+      </a>
 
-    <ul>
-        <li><a href="./recipes/BunnyChow.html">Bunny Chow</a></li>
-        <li> <a href="./recipes/EgusiSoup.html">Egusi Soup</a></li>
-        <li><a href="./recipes/JollofRice.html">Jollof Rice</a></li>
-    </ul>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#catalog">The Catalog</a>
+        <a href="#about">About</a>
+        <a href="#" class="site-nav__cta">My Box <span id="favCount">(0)</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <div class="container hero__inner">
+      <p class="hero__eyebrow">Est. tonight, in your kitchen</p>
+      <h1 class="hero__title">
+        Recipes worth<br>
+        <em>pinning to the fridge.</em>
+      </h1>
+      <p class="hero__sub">
+        A small, tested collection — no life stories before the ingredients,
+        no fifteen ads before the method. Just the card.
+      </p>
+
+      <form class="hero__search" role="search" id="searchForm">
+        <label for="searchInput" class="sr-only">Search recipes</label>
+        <input type="search" id="searchInput" placeholder="Search by dish, ingredient, or mood…">
+        <button type="submit">Search</button>
+      </form>
+
+      <div class="hero__filters" id="filterBar">
+        <button class="filter-chip is-active" data-filter="all">All</button>
+        <button class="filter-chip" data-filter="mains">Mains</button>
+        <button class="filter-chip" data-filter="baking">Baking</button>
+        <button class="filter-chip" data-filter="soups">Soups</button>
+        <button class="filter-chip" data-filter="quick">Under 30 min</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Catalog / Recipe Grid ===== -->
+  <main>
+    <section class="catalog" id="catalog">
+      <div class="container">
+        <div class="catalog__head">
+          <h2>The Catalog</h2>
+          <p class="catalog__count"><span id="resultCount">6</span> recipes</p>
+        </div>
+
+        <div class="recipe-grid" id="recipeGrid">
+          <!-- Recipe cards are rendered here by app.js -->
+        </div>
+
+        <p class="catalog__empty" id="emptyState" hidden>
+          No recipes match that search. Try a different word, or clear the filters.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Recipe Detail Modal ===== -->
+  <div class="modal" id="recipeModal" aria-hidden="true">
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal__close" data-close-modal aria-label="Close recipe">&times;</button>
+      <div class="modal__content" id="modalContent">
+        <!-- Filled by app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <p>&copy; 2026 The Recipe Box. Built one card at a time.</p>
+      <p class="site-footer__note">A learning project — HTML, CSS &amp; JS, no frameworks.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
 </body>
 </html>
