@@ -3,27 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GourmetBook | Premium Recipe Platform</title>
-    <!-- CSS Layers -->
-    <link rel="stylesheet" href="CSS/variable.css">
-    <link rel="stylesheet" href="CSS/layout.css">
-    <link rel="stylesheet" href="CSS/components.css">
-    <link rel="stylesheet" href="CSS/main.css">
+    <title>GourmetBook | Delicious Recipes</title>
+    <!-- Link to our styles -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- App Shell -->
-    <div id="app-root">
-        <header class="site-header" id="main-header"></header>
+    <!-- Header & Navigation Bar -->
+    <header class="site-header">
+        <div class="container header-flex">
+            <a href="#" class="logo">Gourmet<span>Book</span></a>
+            <nav class="nav-links">
+                <a href="#" class="active">Home</a>
+                <a href="#">Favorites</a>
+                <a href="#">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero / Welcome Section -->
+    <section class="hero-section">
+        <div class="container hero-content">
+            <h1>Find the Perfect Recipe</h1>
+            <p>Discover professional, easy-to-cook recipes curated just for you.</p>
+            
+            <!-- Search Bar -->
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search ingredients or recipes...">
+                <button id="search-button">Search</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content: Category Tabs & Recipe Grid -->
+    <main class="container main-content">
         
-        <main class="main-content" id="main-content">
-            <!-- Dynamic content will inject here -->
-        </main>
+        <!-- Quick Filter Buttons -->
+        <div class="category-filters">
+            <button class="filter-btn active" data-category="all">All Recipes</button>
+            <button class="filter-btn" data-category="beef">Beef</button>
+            <button class="filter-btn" data-category="chicken">Chicken</button>
+            <button class="filter-btn" data-category="vegetarian">Vegetarian</button>
+            <button class="filter-btn" data-category="dessert">Desserts</button>
+        </div>
 
-        <footer class="site-footer" id="main-footer"></footer>
-    </div>
+        <!-- Dynamic Recipe Grid -->
+        <h2 class="section-title">Explore Recipes</h2>
+        <div class="recipe-grid" id="recipe-display">
+            <!-- JavaScript will insert recipes here safely -->
+        </div>
+    </main>
 
-    <!-- App Entry Point -->
-    <script type="module" src="JS/app.js"></script>
+    <!-- Simple, Clean Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 GourmetBook. Built for food lovers.</p>
+        </div>
+    </footer>
+
+    <!-- Standard JavaScript File Links at the bottom -->
+    <script src="script.js"></script>
 </body>
 </html>
