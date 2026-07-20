@@ -1,69 +1,83 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GourmetBook | Premium Recipe Platform</title>
     <!-- Link to our styles -->
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <!-- Header & Navigation Bar -->
     <header class="site-header">
-        <div class="container header-flex">
-            <a href="#" class="logo">Gourmet<span>Book</span></a>
-            <nav class="nav-links">
-                <a href="#" class="active">Home</a>
-                <a href="#">Favorites</a>
-                <a href="#">About</a>
-            </nav>
-        </div>
+      <div class="container header-flex">
+        <a href="#" class="logo">Gourmet<span>Book</span></a>
+        <nav class="nav-links">
+          <a href="#" class="active">Home</a>
+          <a href="#">Favorites</a>
+          <a href="#">About</a>
+        </nav>
+      </div>
     </header>
 
     <!-- Hero / Welcome Section -->
     <section class="hero-section">
-        <div class="container hero-content">
-            <h1>Find the Perfect Recipe</h1>
-            <p>Discover professional, easy-to-cook recipes curated just for you.</p>
-            
-            <!-- Search Bar -->
-            <div class="search-container">
-                <input type="text" id="search-input" placeholder="Search ingredients or recipes...">
-                <button id="search-button">Search</button>
-            </div>
+      <div class="container hero-content">
+        <h1>Find the Perfect Recipe</h1>
+        <p>Discover professional, easy-to-cook recipes curated just for you.</p>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Search ingredients or recipes..."
+          />
+          <button id="search-button">Search</button>
         </div>
+      </div>
     </section>
 
     <!-- Main Content: Category Tabs & Recipe Grid -->
     <main class="container main-content">
-        
-        <!-- Quick Filter Buttons -->
-        <div class="category-filters">
-            <button class="filter-btn active" data-category="all">All Recipes</button>
-            <button class="filter-btn" data-category="beef">Beef</button>
-            <button class="filter-btn" data-category="chicken">Chicken</button>
-            <button class="filter-btn" data-category="vegetarian">Vegetarian</button>
-            <button class="filter-btn" data-category="dessert">Desserts</button>
-        </div>
+      <!-- Quick Filter Buttons -->
+      <div class="category-filters">
+        <button class="filter-btn active" data-category="all">
+          All Recipes
+        </button>
+        <button class="filter-btn" data-category="beef">Beef</button>
+        <button class="filter-btn" data-category="chicken">Chicken</button>
+        <button class="filter-btn" data-category="vegetarian">
+          Vegetarian
+        </button>
+        <button class="filter-btn" data-category="dessert">Desserts</button>
+      </div>
 
-        <!-- Dynamic Recipe Grid -->
-        <h2 class="section-title">Explore Recipes</h2>
-        <div class="recipe-grid" id="recipe-display">
-            <!-- JavaScript will insert cards here dynamically. 
+      <!-- Dynamic Recipe Grid -->
+      <h2 class="section-title">Explore Recipes</h2>
+      <div class="recipe-grid" id="recipe-display">
+        <!-- JavaScript will insert cards here dynamically. 
                  A placeholder or loading message can stay here for now -->
-            <p class="loading-placeholder">Ready to load gourmet dishes...</p>
-        </div>
+        <p class="loading-placeholder">Ready to load gourmet dishes...</p>
+      </div>
     </main>
+
+    <div class="modal-overlay" id="recipe-modal">
+      <div class="modal-window">
+        <button class="modal-close" id="modal-close-btn">&times;</button>
+
+        <div id="modal-content-target"></div>
+      </div>
+    </div>
 
     <!-- Simple, Clean Footer -->
     <footer class="site-footer">
-        <div class="container">
-            <p>&copy; 2026 GourmetBook. Built for food lovers.</p>
-        </div>
+      <div class="container">
+        <p>&copy; 2026 GourmetBook. Built for food lovers.</p>
+      </div>
     </footer>
 
     <!-- Standard JavaScript File Links at the bottom -->
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
