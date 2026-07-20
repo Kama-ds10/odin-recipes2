@@ -95,3 +95,65 @@ if (document.readyState === 'loading') {
     // DOM is already fully ready, execute immediately
     displayRecipes(sampleRecipes);
 }
+
+
+// ==========================================
+// 4. SEARCH & FILTER INTERACTION LOGIC
+// ==========================================
+
+function handleSearch() {
+    const searchInput = document.getElementById('search-input');
+    
+    if (!searchInput) return;
+
+    // Get the user's input value, turn it lowercase, and remove extra spaces
+    const query = searchInput.value.toLowerCase().trim();
+    console.log(`🔍 Searching for: "${query}"`);
+
+    // Filter the original sample array
+    const filteredRecipes = sampleRecipes.filter(recipe => {
+        const matchesTitle = recipe.title.toLowerCase().includes(query);
+        const matchesDescription = recipe.description.toLowerCase().includes(query);
+        const matchesCategory = recipe.category.toLowerCase().includes(query);
+
+        // Return true if the search query matches any of these fields
+        return matchesTitle || matchesDescription || matchesCategory;
+    });
+
+    // Update the visual grid with the filtered array results
+    displayRecipes(filteredRecipes);
+}
+
+// Attach listeners once the script environment is active
+function setupSearchEventListeners() {
+    const searchBtn = document.getElementById('search-button');
+    const searchInput = document.getElementById('search-input');
+
+    // 1. Trigger search when clicking the Search button
+    if (searchBtn) {
+        searchBtn.addEventListener('click', handleSearch);
+    }
+
+    // 2. Trigger search when pressing the "Enter" key inside the input box
+    if (searchInput) {
+        searchInput.addEventListener('keyup', (event) => {
+            if (event.key === 'Enter') {
+                handleSearch();
+            }
+        });
+    }
+}
+
+// ==========================================
+// 5. UPDATED APPLICATION ENTRY POINT
+// ==========================================
+// Extend our execution block to load both data grids and event triggers cleanly
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        displayRecipes(sampleRecipes);
+        setupSearchEventListeners();
+    });
+} else {
+    displayRecipes(sampleRecipes);
+    setupSearchEventListeners();
+}
