@@ -157,3 +157,57 @@ if (document.readyState === 'loading') {
     displayRecipes(sampleRecipes);
     setupSearchEventListeners();
 }
+
+
+
+// ==========================================
+// 6. CATEGORY FILTER INTERACTION LOGIC
+// ==========================================
+
+function setupCategoryEventListeners() {
+    // Select all buttons inside our category filters container
+    const filterButtons = document.querySelectorAll('.category-filters .filter-btn');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            // 1. Visually swap the active states across buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+
+            // 2. Extract the target value from the data-category attribute
+            const selectedCategory = event.currentTarget.getAttribute('data-category');
+            console.log(`📂 Filtering category by: "${selectedCategory}"`);
+
+            // Clear the search input value to avoid conflicting filters
+            const searchInput = document.getElementById('search-input');
+            if (searchInput) searchInput.value = "";
+
+            // 3. Conditional data filtering logic
+            if (selectedCategory === 'all') {
+                // Show everything if 'All Recipes' is selected
+                displayRecipes(sampleRecipes);
+            } else {
+                // Otherwise, filter down matching string components exactly
+                const filtered = sampleRecipes.filter(recipe => 
+                    recipe.category.toLowerCase() === selectedCategory.toLowerCase()
+                );
+                displayRecipes(filtered);
+            }
+        });
+    });
+}
+
+// ==========================================
+// 7. FINAL APPLICATION ENTRY POINT
+// ==========================================
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        displayRecipes(sampleRecipes);
+        setupSearchEventListeners();
+        setupCategoryEventListeners(); // <-- Add this here
+    });
+} else {
+    displayRecipes(sampleRecipes);
+    setupSearchEventListeners();
+    setupCategoryEventListeners(); // <-- Add this here
+}
