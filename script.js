@@ -1,0 +1,1 @@
+console.log("🍳 GourmetBook basic setup loaded successfully!");
